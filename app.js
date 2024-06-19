@@ -5,9 +5,19 @@ const path = require('path');
 //setup static folder
 //middleware
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
+let posts = [
+    {id: 1, title: 'Post One'},
+    {id: 2, title: 'Post Two' },
+    {id: 3, title: 'Post three'},
+];
+//hit this specific endpoint to get this data
+app.get('/api/posts', (req, res) =>{
 
+    res.json(posts);
+    
+});
 
 // app.get('/', (req, res) =>{
 
