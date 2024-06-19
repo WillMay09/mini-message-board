@@ -1,0 +1,24 @@
+{
+  "name": "mini-message-board",
+  "version": "1.0.0",
+  "description": "simple express api",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev" : "node --watch app.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/WillMay09/mini-message-board.git"
+  },
+  "author": "William Mayhood",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WillMay09/mini-message-board/issues"
+  },
+  "homepage": "https://github.com/WillMay09/mini-message-board#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
