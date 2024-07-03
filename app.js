@@ -1,36 +1,21 @@
 const express = require('express');
+const http = require('http');
 const app = express();
 const path = require('path');
-
-//setup static folder
-//middleware
-
-// app.use(express.static(path.join(__dirname, 'public')));
+const PORT = process.env.PORT || 8000
 
 let posts = [
     {id: 1, title: 'Post One'},
     {id: 2, title: 'Post Two' },
     {id: 3, title: 'Post three'},
 ];
-//hit this specific endpoint to get this data
-app.get('/api/posts', (req, res) =>{
-
-    res.json(posts);
-    
-});
-
-// app.get('/', (req, res) =>{
-
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 
 
-// });
+//Server
+app.set('port', PORT);
 
-// app.get('/about', (req, res) =>{
+const server = http.createServer(app);
+//create http server with the app as the listener
 
-//     res.sendFile(path.join(__dirname, 'public', 'about.html'));
+server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
-
-// });
-
-app.listen(2000, () =>console.log(`Server is running on port 2000`));
