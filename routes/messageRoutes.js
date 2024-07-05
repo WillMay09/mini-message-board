@@ -26,11 +26,30 @@ router.get('/',(req, res, next) =>{
 });
 
 
-router.get('/router',(req, res, next) =>{
+//GET formPage
+router.get('/new', (req, res, next) => {
+
+    res.render("new.ejs");
 
 
 
 
 });
+
+
+// router.post('/new',(req, res, next) =>{
+
+//     let newMessage = {
+
+//         text: req.body.text,
+//         user: req.body.user,
+//         added: new Date()
+
+
+//     }
+//     messages.push(newMessage);
+
+
+// });
 
 module.exports = router;
