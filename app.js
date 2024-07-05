@@ -5,6 +5,7 @@ const path = require('path');
 const messages = require('./routes/messageRoutes.js')
 const PORT = process.env.PORT || 8000
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
 
 let posts = [
     {id: 1, title: 'Post One'},

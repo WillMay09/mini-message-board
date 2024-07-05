@@ -37,19 +37,21 @@ router.get('/new', (req, res, next) => {
 });
 
 
-// router.post('/new',(req, res, next) =>{
+router.post('/new', (req, res, next) =>{
 
-//     let newMessage = {
+    const newMessage = {
 
-//         text: req.body.text,
-//         user: req.body.user,
-//         added: new Date()
-
-
-//     }
-//     messages.push(newMessage);
+        text: req.body.text,
+        user: req.body.user,
+        added: new Date()
 
 
-// });
+    }
+    
+    messages.push(newMessage);
+    console.log(messages);
+
+
+});
 
 module.exports = router;
