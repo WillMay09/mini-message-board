@@ -1,9 +1,8 @@
 const express = require('express');
-const http = require('http');
+require('dotenv').config();
 const app = express();
 const path = require('path');
 const messages = require('./routes/messageRoutes.js')
-const PORT = process.env.PORT || 8000
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,14 +19,14 @@ app.use('/home', messages)
 
 
 
+module.exports = app;
 
 
+// //Server
+// app.set('port', PORT);
 
-//Server
-app.set('port', PORT);
+// const server = http.createServer(app);
+// //create http server with the app as the listener
 
-const server = http.createServer(app);
-//create http server with the app as the listener
-
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+// server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 

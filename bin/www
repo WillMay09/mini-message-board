@@ -1,0 +1,85 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const debug = require('debug')('library-project:server')
+const http = require('http')
+require('dotenv').config();
+
+
+const port = normalizePort(process.env.PORT || 3000);
+//make sure port is formatted correctly
+app.set('port', port);
+//set the port
+
+const server = http.createServer(app);
+
+//set up listening port
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+function normalizePort(val){
+
+    const port = parseInt(val, 10)//converts input value to an integer with base of 10
+
+    if(isNaN(port)){
+        //if the input falls(it's not a number), return the value, cannot be used as a port
+    return val;
+    }
+
+    if(port >= 0){
+    //if the port is a valid non-negative int, then it is good to be returned
+    return port;
+
+    }
+
+    ////other case when val is negative
+
+    return false;
+}
+
+////handles errors when the server starts up
+
+function onError (error) {
+  if (error.syscall !== 'listen') {
+    throw error
+  }
+
+  const bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges')
+      process.exit(1)
+      break
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use')
+      process.exit(1)
+      break
+    default:
+      throw error
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+ //logs a message indicating the server has successfully started running and is listening
+
+function onListening () {
+  const addr = server.address()
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port
+  debug('Listening on ' + bind)
+}
+
+
+
+
