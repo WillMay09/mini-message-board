@@ -14,7 +14,9 @@ let posts = [
 
 
 //routes
-app.use('/home', messages)
+app.use('/', indexRouter);
+app.use('/catalog', catalogRouter);
+app.use('/users', usersRouter.js);
 
 
 
