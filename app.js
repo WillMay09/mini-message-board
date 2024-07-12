@@ -2,7 +2,10 @@ const express = require('express');
 require('dotenv').config();
 const app = express();
 const path = require('path');
-const messages = require('./routes/messageRoutes.js')
+//const messages = require('./routes/messageRoutes.js');
+const indexRouter = require("./routes/index.js");
+const catalogRouter = require("./routes/catalog.js");
+const usersRouter = require("./routes/users.js");
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
@@ -14,9 +17,10 @@ let posts = [
 
 
 //routes
+//app.use('/home', messages);
 app.use('/', indexRouter);
-app.use('/catalog', catalogRouter);
-app.use('/users', usersRouter.js);
+ app.use('/catalog', catalogRouter);
+ app.use('/users', usersRouter);
 
 
 

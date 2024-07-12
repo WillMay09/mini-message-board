@@ -2,8 +2,6 @@
 //database implementation required
 const asyncHandler = require("express-async-handler");
 
-const Genre = require("../models/genre");
-const asyncHandler = require("express-async-handler");
 
 // Display list of all Genre.
 exports.genre_list = asyncHandler(async (req, res, next) => {
