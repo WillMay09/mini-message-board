@@ -27,12 +27,24 @@ exports.author_create_get = asyncHandler(async(req, res, next) =>{
 
 });
 
+// Handle Author create on POST.
+exports.author_create_post = asyncHandler(async (req, res, next) => {
+    res.send("NOT IMPLEMENTED: Author create POST");
+  });
+
+
+
 //Handle Author delete on POST
 exports.author_delete_get = asyncHandler(async (req, res, next) =>{
 
 
     res.send("NOT IMPLEMENTED: Author delete POST");
 });
+
+// Handle Author delete on POST.
+exports.author_delete_post = asyncHandler(async (req, res, next) => {
+    res.send("NOT IMPLEMENTED: Author delete POST");
+  });
 
 //Display Author update form on GET
 

@@ -3,25 +3,20 @@ require('dotenv').config();
 const app = express();
 const path = require('path');
 //const messages = require('./routes/messageRoutes.js');
-const indexRouter = require("./routes/index.js");
-const catalogRouter = require("./routes/catalog.js");
-const usersRouter = require("./routes/users.js");
+
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
-let posts = [
-    {id: 1, title: 'Post One'},
-    {id: 2, title: 'Post Two' },
-    {id: 3, title: 'Post three'},
-];
+var indexRouter = require("./routes/index.js");
+var usersRouter = require("./routes/users.js");
+var catalogRouter = require("./routes/catalog.js");
 
+//middleware chain
 
 //routes
-//app.use('/home', messages);
-app.use('/', indexRouter);
- app.use('/catalog', catalogRouter);
+ app.use('/', indexRouter);
  app.use('/users', usersRouter);
-
+ app.use('/catalog', catalogRouter);
 
 
 
