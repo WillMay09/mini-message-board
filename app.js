@@ -16,15 +16,11 @@ async function main(){
     await mongoose.connect(mongoDB);
 };
 
-const exampleModelSchema = new mongoose.Schema({
 
-    a_string: String,
-    a_date: Date,
 
-});
-const SomeModel = mongoose.model("SomeModel", exampleModelSchema);
-
-app.set('view engine', 'ejs');
+//view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set('view engine', 'pug');
 app.use(express.urlencoded({ extended: true }));
 
 var indexRouter = require("./routes/index.js");
