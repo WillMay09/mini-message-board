@@ -6,7 +6,7 @@ const BookInstance = require("../models/bookinstance");
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async (req, res, next) => {
-    
+    //database queries
   const [
     numBooks,
     numBookInstances,
@@ -34,7 +34,12 @@ exports.index = asyncHandler(async (req, res, next) => {
   
   // Display list of all books.
   exports.book_list = asyncHandler(async (req, res, next) => {
-    res.send("NOT IMPLEMENTED: Book list");
+    const allBooks = await Book.find({}, "title author")
+    .sort({ title: 1 })
+    .populate("author")
+    .exec();
+
+  res.render("book_list", { title: "Book List", book_list: allBooks });
   });
   
   // Display detail page for a specific book.
